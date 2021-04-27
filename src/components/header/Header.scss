@@ -1,0 +1,31 @@
+nav {
+  background-color: #e3f2fd;
+
+  .nav-link {
+    background: transparent;
+    border: none;
+  }
+}
+
+.login-and-search-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .login {
+    border: none;
+    margin: 0 10px;
+    border-radius: 50%;
+    min-height: 45px;
+    min-width: 45px;
+    background: black;
+    padding: 0;
+
+    svg {
+      height: 30px;
+      width: 30px;
+      display: block;
+      margin: auto;
+    }
+  }
+}
