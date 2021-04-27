@@ -4,8 +4,8 @@ import { useHistory } from 'react-router-dom';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useEffect } from 'react';
-import SearchRow from './components/search-row/SearchRow';
 import './Header.scss';
+import CustomLink from '../shared/link/CustomLink';
 
 const Header: FC<{}> = () => {
 
@@ -18,7 +18,6 @@ const Header: FC<{}> = () => {
   }
 
   return (
-    <Router>
       <div>
         <nav className='navbar navbar-expand-lg navbar-light'>
           <div className='container'>
@@ -26,41 +25,24 @@ const Header: FC<{}> = () => {
               MovieYES
             </a>
             <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
-              <li className={active('#') ? 'nav-item active' : 'nav-item'}>
-                <Link className='nav-link' to='/'>
-                  Home
-                </Link>
-              </li>
-              <li className={active('/soup') ? 'nav-item active' : 'nav-item'}>
-                <Link className='nav-link' to='/soup'>
-                  Soup
-                </Link>
-              </li>
-              <li className={active('/films') ? 'nav-item active' : 'nav-item'}>
-                <Link className='nav-link' to='/films'>
-                  Films
-                </Link>
-              </li>
-              <li className={active('/anime') ? 'nav-item active' : 'nav-item'}>
-                <Link className='nav-link' to='/anime'>
-                  Anime
-                </Link>
-              </li>
+                <CustomLink to={'/'} title={'Home'}/>
+                <CustomLink to={'/soup'} title={'Soup'}/>
+                <CustomLink to={'/films'} title={'Films'}/>
+                <CustomLink to={'/anime'} title={'Anime'}/>
             </ul>
             <div className='login-and-search-container my-2 my-lg-0'>
               <button
                 id='search-button'
                 type='button'
                 className='btn btn-primary login'
+                onClick={()=> {}}
               >
                 <FontAwesomeIcon icon={faUsers} />
               </button>
-              <SearchRow searchChange={searchChange}></SearchRow>
             </div>
           </div>
         </nav>
       </div>
-    </Router>
   );
 };
 
