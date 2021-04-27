@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Link, Route } from 'react-router-dom';
-import { CustomLinkType } from './LinkType';
+import { CustomLinkType } from './CustomLinkTypeType';
 
 const CustomLink: FC<CustomLinkType> = ({to, title}) => {
   return (
