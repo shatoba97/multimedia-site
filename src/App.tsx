@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Header />
       <Switch>
-        <Route path={"/"}>
+        <Route exact path={"/"}>
           1 <Body />
         </Route>
         <Route path={"/soup"}>
