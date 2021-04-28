@@ -1,9 +1,20 @@
 nav {
   background-color: #e3f2fd;
-
+  .container {
+    display: flex;
+    flex-wrap: nowrap !important;
+  }
   .nav-link {
     background: transparent;
     border: none;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
   }
 }
 

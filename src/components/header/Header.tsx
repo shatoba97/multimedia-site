@@ -24,7 +24,7 @@ const Header: FC<{}> = () => {
             <a className='navbar-brand' href='#'>
               MovieYES
             </a>
-            <ul className='navbar-nav mr-auto mt-2 mt-lg-0'>
+            <ul className='links navbar-nav mt-lg-0'>
                 <CustomLink to={'/'} title={'Home'}/>
                 <CustomLink to={'/soup'} title={'Soup'}/>
                 <CustomLink to={'/films'} title={'Films'}/>
