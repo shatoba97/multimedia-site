@@ -1,11 +1,8 @@
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-
-import { useHistory } from 'react-router-dom';
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useEffect } from 'react';
-import './Header.scss';
 import CustomLink from '../shared/link/CustomLink';
+import './Header.scss';
 
 const Header: FC<{}> = () => {
 
@@ -25,10 +22,8 @@ const Header: FC<{}> = () => {
               MovieYES
             </a>
             <ul className='links navbar-nav mt-lg-0'>
-                <CustomLink to={'/'} title={'Home'}/>
-                <CustomLink to={'/soup'} title={'Soup'}/>
-                <CustomLink to={'/films'} title={'Films'}/>
-                <CustomLink to={'/anime'} title={'Anime'}/>
+                <CustomLink to={'/today'} title={'Сегодня '}/>
+                <CustomLink to={'/animals'} title={'Животные '}/>
             </ul>
             <div className='login-and-search-container my-2 my-lg-0'>
               <button

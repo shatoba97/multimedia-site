@@ -10,19 +10,12 @@ const Body: React.FC<{}> = () => {
 
   return (
     <React.Fragment>
-      <SearchRow searchChange={searchChange}></SearchRow>
       <Switch>
-        <Route exact path={"/"}>
-          <div>1</div>
+        <Route exact path={"/today"}>
+          awda
         </Route>
-        <Route path={"/soup"}>
-          <div>12</div>
-        </Route>
-        <Route path={"/films"}>
-          <div>123</div>
-        </Route>
-        <Route path={"/anime"}>
-          <div>1234</div>
+        <Route exact path={"/animals"}>
+          ss
         </Route>
       </Switch>
     </React.Fragment>

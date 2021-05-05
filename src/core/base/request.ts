@@ -1,7 +1,5 @@
-import { RequestParams } from '../model/request-params.model'
+import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-export const httpRequest = (params: RequestParams) => {
-  return fetch(params.url, {
-    
-  })
+export default <T>(config: AxiosRequestConfig): Promise<AxiosResponse<T>> => {
+  return axios.request<T, AxiosResponse<T>>(config)
 }
