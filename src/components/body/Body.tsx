@@ -1,21 +1,22 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import { Route, Switch } from "react-router-dom";
-import SearchRow from "../shared/search-row/SearchRow";
-import "./Body.scss";
 
-const Body: React.FC<{}> = () => {
-  const searchChange = (value: string) => {
-    console.log(value);
-  };
+import "./Body.scss";
+import AllAnimals from './all-animals/AllAnimals';
+import ToDayAnimals from './to-day/ToDayAnimals';
+
+import Animals from '../../core/shared/components/animals/Animals';
+
+const Body: FC<{}> = () => {
 
   return (
     <React.Fragment>
       <Switch>
         <Route exact path={"/today"}>
-          awda
+          <Animals Component={ToDayAnimals} type={'toDay'}></Animals>
         </Route>
         <Route exact path={"/animals"}>
-          ss
+          <Animals Component={AllAnimals} type={'all'}></Animals>
         </Route>
       </Switch>
     </React.Fragment>

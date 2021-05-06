@@ -5,12 +5,11 @@ import { AuthModel } from '../../model/auth.model';
 import { store } from '../../store/store';
 import actions from '../../store/actions/user-actions/user';
 
-const loginPost = async (url: string, data: any) => {
-  const body = Object.keys(data)? {...data}: undefined;
+const loginPost = (data: any) => {
   const req: AxiosRequestConfig = {
     method: 'POST',
-    data: body,
-    url: `${baseUrl}/${url}/`,
+    data,
+    url: `${baseUrl}/token/`,
     responseType: 'json',
     headers: {
       'Content-Type': 'application/json'
@@ -18,7 +17,7 @@ const loginPost = async (url: string, data: any) => {
   }
   httpRequest<AuthModel>(req).then(res => {
     console.log(res.data.access);
-    localStorage.setItem('token', res.data.access);
+    localStorage.setItem('access', res.data.access);
     store.dispatch(actions.setUser({
       refreshToken: res.data.refresh,
       token: res.data.access,

@@ -1,5 +1,7 @@
-import { createStore, combineReducers } from 'redux';
-import { UserIO } from './model/user.model';
 import UserReducer from './reducers/user-reducer/root-reducer'
+import AnimalsReducer from './reducers/animals-reducer/root-reducer'
+import { combineReducers, createStore } from 'redux';
 
-export const store  = createStore(combineReducers({UserReducer}));
+export const reducers = combineReducers({UserReducer, AnimalsReducer});
+
+export const store  = createStore(reducers);

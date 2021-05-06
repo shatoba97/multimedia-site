@@ -8,7 +8,7 @@ const Auth: FC<{}> = () => {
   const [pass, setPass] = useState('');
   const onSubmit = (e: any) => {
     e.preventDefault();
-    loginPost('token', {
+    loginPost({
       username: 'test_user_1',
       password: 'user10000'
     })
