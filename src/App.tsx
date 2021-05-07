@@ -1,74 +1,44 @@
-import React, { Fragment, useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import {
   Route,
   BrowserRouter as Router,
-  Switch,
-  useHistory,
+  Redirect,
 } from "react-router-dom";
 import "./App.scss";
 import Auth from "./components/auth/Auth";
 import Body from "./components/body/Body";
 import Header from "./components/header/Header";
-import { AnimalsIO } from "./core/store/model/animals.model";
-import { UserIO } from "./core/store/model/user.model";
-import { reducers, store } from "./core/store/store";
-
-type StoreModel = ReturnType<typeof reducers>;
+import { Layout } from "./core/shared/components/layout/Layout";
+import { StoreModel } from "./core/store/store";
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem("access"));
-  const history = useHistory();
-  // const isLoggedIn = useSelector((state: UserIO) => state.token);
-  // console.log(isLoggedIn);
-  token
-    ? window.history.pushState(undefined, "", "/today")
-    : window.history.pushState(undefined, "", "/login");
-
-  // token ? history.push("/today") : history.push("/login");
-
-  const a = useSelector((state: StoreModel) => {
-    console.log(state);
-    // (store.getState().UserReducer as UserIO).token
-    return state.UserReducer;
+  const token = useSelector((state: StoreModel) => {
+    return state.userReducer.token;
   });
-
-  console.log(a)
-  // store.subscribe(async () => {
-  //   const userToken = (store.getState().UserReducer as UserIO).token;
-  //   // userToken? window.history.pushState(undefined, '','/today') : window.history.pushState(undefined, '','/login');
-  //   // await setTimeout(() => {}, 1000);
-  //   setToken(userToken);
-  //   console.log(userToken);
-  //   // userToken? window.location.href = '/today' : window.location.href = '/login';
-  // });
 
   return (
     <Router>
       <Route exact path="/">
-        <Layout>
-          <Content />
-        </Layout>
+        {!token ? <Redirect to="/login" /> : <Redirect to="/today" />}
       </Route>
-      {/* <Route exact path={"/login"}>
+      <Route exact path={"/login"}>
         <Auth />
       </Route>
       <Route exact path={"/today"}>
-        <React.Fragment>
+        <Layout>
           <Header />
           <Body />
-        </React.Fragment>
+        </Layout>
       </Route>
       <Route exact path={"/animals"}>
-        <React.Fragment>
+        <Layout>
           <Header />
           <Body />
-        </React.Fragment>
-      </Route> */}
+        </Layout>
+      </Route>
     </Router>
   );
 }
 
 export default App;
-
-historu.push("/auth")

@@ -5,11 +5,11 @@ import { ActionIO } from '../../model/action.model';
 import { AnimalsIO } from '../../model/animals.model';
 
 
-const AnimalsReducer: Reducer<AnimalsIO, ActionIO> = (animals: any, action: ActionIO): AnimalsIO => {
+const AnimalsReducer = (animals: AnimalsIO = initialAnimalsState, action: ActionIO): AnimalsIO => {
   switch (action.type) {
     case SET_TO_DAY_ANIMALS: return {...animals, ...action.value};
     case REMOVE_TO_DAY_ANIMALS: return initialAnimalsState;
-    default: return initialAnimalsState;
+    default: return animals;
   }
 };
 

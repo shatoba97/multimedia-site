@@ -4,6 +4,6 @@ import { ToDayAnimalsModel } from '../../../../model/to-day-animals.model';
 import { PageType } from '../../../../type/page.type';
 
 export interface AnimalsIO {
-  Component: FC<{animals: ToDayAnimalsModel[] | AnimalsModel[]}>
+  Component: FC<{animals: any[], showModal: (value: any) => void}>
   type: PageType,
 }

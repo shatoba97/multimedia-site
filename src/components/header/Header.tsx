@@ -1,7 +1,7 @@
 import { faUsers } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC, useEffect } from 'react';
-import CustomLink from '../shared/link/CustomLink';
+import CustomLink from '../../core/shared/components/link/CustomLink';
 import './Header.scss';
 
 const Header: FC<{}> = () => {

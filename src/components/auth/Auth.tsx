@@ -1,17 +1,19 @@
 import React, { FC, Fragment, useState } from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, BrowserRouter as Router, Switch, useHistory } from "react-router-dom";
 import loginPost from '../../core/service/login/login-post';
 import "./Auth.scss";
 
 const Auth: FC<{}> = () => {
   const [login, setLogin] = useState('');
   const [pass, setPass] = useState('');
-  const onSubmit = (e: any) => {
+  const history = useHistory();
+  const onSubmit = async (e: any) => {
     e.preventDefault();
-    loginPost({
+    await loginPost({
       username: 'test_user_1',
       password: 'user10000'
-    })
+    });
+    history.push('/today');
   };
 
   return (

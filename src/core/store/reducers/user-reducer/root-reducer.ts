@@ -4,11 +4,12 @@ import initialUserState from '../../initial-state/initial-user-state';
 import { ActionIO } from '../../model/action.model';
 import { UserIO } from '../../model/user.model';
 
-const UserReducer: Reducer<UserIO, ActionIO> = (user: UserIO, action: ActionIO): UserIO => {
+
+const UserReducer = (user: UserIO = initialUserState, action: ActionIO): UserIO => {
   switch (action.type) {
     case SET_USER: return {...user, ...action.value};
     case REMOVE_USER: return initialUserState;
-    default: return initialUserState;
+    default: return user;
   }
 };
 
