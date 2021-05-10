@@ -1,17 +1,13 @@
 import React, { FC, useEffect, useState } from "react";
 import "./Animals.scss";
 import { AnimalsIO } from "./model/Animals";
-import { PageType } from "../../../type/page.type";
 import { AnimalsModel } from "../../../model/animal.model";
-import { ToDayAnimalsModel } from "../../../model/to-day-animals.model";
 import {
   getAllAnimals,
   getToDayAnimals,
   getAnimalById,
 } from "../../../service/animals/animals";
-import { Button, Card, Modal, Image } from "react-bootstrap";
-
-import explore from "../../../assets/icon/explore.png";
+import { Button, Modal } from "react-bootstrap";
 
 const Animals: FC<AnimalsIO> = ({ Component, type }) => {
   const [show, setShow] = useState(false);
@@ -57,6 +53,14 @@ const Animals: FC<AnimalsIO> = ({ Component, type }) => {
     };
   }, []);
 
+  const calculateAge = (dob: Date): string => {
+    const diffMs = Date.now() - dob.getTime();
+    const ageDt = new Date(diffMs);
+
+    const y = Math.abs(ageDt.getUTCFullYear() - 1970);
+    return `лет: ${y}, месяцев:${ageDt.getMonth()}`;
+}
+
   return (
     <React.Fragment>
       <Component animals={animals as any[]} showModal={showModal} />
@@ -67,9 +71,9 @@ const Animals: FC<AnimalsIO> = ({ Component, type }) => {
         </Modal.Header>
         <Modal.Body>
           <div>
-            <p className="name">Имя {activeAnimal.name}</p>
+            <p className="name">Имя: {activeAnimal.name}</p>
             <p className="height">
-              Рост{" "}
+              Рост: 
               {
                 activeAnimal?.animal_attributes?.find(
                   (attr) => attr.name === "height"
@@ -77,16 +81,16 @@ const Animals: FC<AnimalsIO> = ({ Component, type }) => {
               }
             </p>
             <p className="width">
-              Вес{" "}
+              Вес: 
               {
                 activeAnimal?.animal_attributes?.find(
                   (attr) => attr.name === "weight"
                 )?.value
               }
             </p>
-            <p className="age">Возраст {activeAnimal?.spec_name}</p>
-            <p className="type">Тип {activeAnimal?.spec_parent_name}</p>
-            <p className="sub-type">Подтип {activeAnimal?.spec_name}</p>
+            <p className="age">Возраст: {activeAnimal?.birth_date? calculateAge(new Date(activeAnimal?.birth_date)): ''}</p>
+            <p className="type">Тип: {activeAnimal?.spec_parent_name}</p>
+            <p className="sub-type">Подтип: {activeAnimal?.spec_name}</p>
           </div>
         </Modal.Body>
         <Modal.Footer>

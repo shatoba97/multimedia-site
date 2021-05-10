@@ -1,7 +1,6 @@
 import { AnimalsModel } from '../../../model/animal.model';
 import { ToDayAnimalsModel } from '../../../model/to-day-animals.model';
 import { ActionIO } from '../../model/action.model';
-import { UserIO } from '../../model/user.model';
 import { REMOVE_TO_DAY_ANIMALS, SET_TO_DAY_ANIMALS } from './animals.action';
 
 const setToDayAnimals = (animals: ToDayAnimalsModel[]): ActionIO => ({

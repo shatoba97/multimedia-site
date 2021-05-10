@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from 'axios';
 import httpRequest from '../../base/request';
 import { baseUrl } from '../../const/url-pass';
 import { AuthModel } from '../../model/auth.model';

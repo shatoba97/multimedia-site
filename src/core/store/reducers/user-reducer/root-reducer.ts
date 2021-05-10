@@ -1,4 +1,3 @@
-import { Reducer } from 'react';
 import { REMOVE_USER, SET_USER } from '../../actions/user-actions/user.action';
 import initialUserState from '../../initial-state/initial-user-state';
 import { ActionIO } from '../../model/action.model';

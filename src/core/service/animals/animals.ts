@@ -7,9 +7,7 @@ import actions from '../../store/actions/toDayAnimals/animals';
 import { AnimalsModel } from '../../model/animal.model';
 import { ToDayAnimalsModel } from '../../model/to-day-animals.model';
 
-
-export class AnimalService {
-  function getAllAnimals(): Promise<AnimalsModel[]> {
+  const getAllAnimals = (): Promise<AnimalsModel[]> => {
     const req: AxiosRequestConfig = {
       method: 'GET',
       url: `${baseUrl}/v1/animals/`,
@@ -21,13 +19,12 @@ export class AnimalService {
       }
     };
     return httpRequest<BaseRequestModel<AnimalsModel[]>>(req).then(res => {
-      console.log(res.data.results);
       store.dispatch(actions.setAllAnimals(res.data.results));
       return res.data.results;
     });
   }
   
-  function getToDayAnimals(): Promise<ToDayAnimalsModel[]> {
+  const getToDayAnimals = (): Promise<ToDayAnimalsModel[]> => {
     const req: AxiosRequestConfig = {
       method: 'GET',
       url: `${baseUrl}/v1/prescriptions/today/`,
@@ -39,14 +36,12 @@ export class AnimalService {
       }
     };
     return httpRequest<BaseRequestModel<ToDayAnimalsModel[]>>(req).then(res => {
-      console.log(res.data.results);
       store.dispatch(actions.setToDayAnimals(res.data.results));
       return res.data.results;
     });
   }
-  
-  @RefreshToken
-  function getAnimalById(id: number): Promise<AnimalsModel> {
+
+  const getAnimalById = (id: number): Promise<AnimalsModel> => {
     const req: AxiosRequestConfig = {
       method: 'GET',
       url: `${baseUrl}/v1/animals/${id}/`,
@@ -58,11 +53,9 @@ export class AnimalService {
       }
     };
     return httpRequest<AnimalsModel>(req).then(res => {
-      console.log(res.data);
       return res.data;
     });
   }
-}
 
 
 export {getAllAnimals, getToDayAnimals, getAnimalById}

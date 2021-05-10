@@ -1,14 +1,13 @@
-export function RefreshToken() {
-  return function (target: any, propertyKey: string, descriptor: PropertyDescriptor) {
-    const original = descriptor.value;
+import { store } from "../store/store";
+import actions from '../store/actions/user-actions/user';
 
-    descriptor.value = function(...args: any[]) {
-      return (original.call(this, ...args)).catch((e: any) => {
-        window.history.pushState(undefined, '', '/login');
-        return e;
-      });
-    };
 
-    return descriptor;
-  };
+export function RefreshToken<T>(fn: (...[]) => Promise<T>): Promise<T> {
+  return fn().catch((e: any) => {
+    if (e?.response.status === 401) {
+      localStorage.setItem('access', '')
+      store.dispatch(actions.setUser({...store.getState().userReducer, token: ''}))
+    }
+    throw e;
+  });
 }

@@ -1,4 +1,3 @@
-import { Reducer } from 'react';
 import { REMOVE_TO_DAY_ANIMALS, SET_TO_DAY_ANIMALS } from '../../actions/toDayAnimals/animals.action';
 import initialAnimalsState from '../../initial-state/initial-animals-state';
 import { ActionIO } from '../../model/action.model';
