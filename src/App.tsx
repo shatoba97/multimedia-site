@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import {
+  Route,
+  BrowserRouter as Router,
+  Redirect,
+} from "react-router-dom";
+import "./App.scss";
+import Auth from "./components/auth/Auth";
+import Body from "./components/body/Body";
+import Header from "./components/header/Header";
+import { Layout } from "./core/shared/components/layout/Layout";
+import { StoreModel } from "./core/store/store";
 
 function App() {
+  const token = useSelector((state: StoreModel) => {
+    return state.userReducer.token;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Route exact path="/">
+        {!token ? <Redirect to="/login" /> : <Redirect to="/today" />}
+      </Route>
+      <Route exact path={"/login"}>
+        <Auth />
+      </Route>
+      <Route exact path={"/today"}>
+        <Layout>
+          <Header />
+          <Body />
+        </Layout>
+      </Route>
+      <Route exact path={"/animals"}>
+        <Layout>
+          <Header />
+          <Body />
+        </Layout>
+      </Route>
+    </Router>
   );
 }
 

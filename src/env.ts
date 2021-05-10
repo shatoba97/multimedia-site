@@ -1,0 +1,3 @@
+export const env = {
+  key: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzaGF0b2JhOTdAeWFuZGV4LnJ1IiwiZXhwIjoxNjIwNDgwNTM1fQ.U48q504ptrmy5kn-kl43-4LFZS0gHcNSYr963Mz_TSkD6DcYBapFpLO-DtfdOABHAQhar0RHVnLV0jXqty_9qw',
+}

@@ -1,0 +1,26 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 40vh auto;
+  width: 500px;
+
+  .inputs-container {
+    display: flex;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 70%;
+  }
+
+  .login-button {
+    min-width: 100px;
+  }
+
+  .error {
+    margin-top: 1rem;
+    color: red;
+    font-weight: 700;
+  }
+}

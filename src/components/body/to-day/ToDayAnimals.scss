@@ -1,0 +1,43 @@
+.animals-container {
+  display: grid;
+  margin: 50px auto;
+  max-width: 60%;
+  grid-auto-rows: 300px;
+  grid-column-gap: 30px;
+  grid-row-gap: 50px;
+  grid-template-columns: repeat(3, minmax(250px, auto));
+  overflow: hidden;
+  overflow-x: auto;
+
+  .animal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px;
+    background: #e3f2fd;
+
+    .show-animal {
+      flex: 0.75;
+      width: 80%;
+
+      img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+
+    .animal-data {
+      flex: 0.2 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      p {
+        margin: 2px;
+      }
+    }
+  }
+}
