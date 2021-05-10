@@ -13,8 +13,8 @@ const Auth: FC<{}> = () => {
   const onSubmit = async (e: any) => {
     e.preventDefault();
     await loginPost({
-      username: login, //username: "test_user_1",
-      password: pass, //password: "user10000",
+     username: "test_user_1",// username: login, //username: "test_user_1",
+     password: "user10000",// password: pass, //password: "user10000",
     })
       .then(() => {
         setError({});

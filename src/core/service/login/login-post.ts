@@ -16,7 +16,6 @@ const loginPost = (data: any): Promise<void> => {
     }
   }
   return httpRequest<AuthModel>(req).then(res => {
-    console.log(res.data.access);
     localStorage.setItem('access', res.data.access);
     store.dispatch(actions.setUser({
       refreshToken: res.data.refresh,
